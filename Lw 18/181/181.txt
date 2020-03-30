@@ -1,0 +1,17 @@
+INPUT                        OUTPUT
+14 56 56 12                  Student avarages:
+45 90 13 45                  45     
+15 67 89 12                  38
+45 67 12 45                  53
+                             42
+                             Class averages:
+                             45
+
+
+
+
+
+
+
+
+

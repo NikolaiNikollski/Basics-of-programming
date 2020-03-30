@@ -1,0 +1,5 @@
+INPUT                       OUTPUT
+123x                        6
+123                         6
+g                           0
+61                          0
