@@ -2,8 +2,10 @@ PROGRAM AverageScore(INPUT, OUTPUT);
 CONST
   NumberOfScores = 4;
   ClassSize = 4;
+  MaxScore = 100;
+  MinScore = 0;
 TYPE
-  Score = 0 .. 100;
+  Score = Minscore .. MaxScore;
 VAR
   WhichScore: 1 .. NumberOfScores;
   Student: 1 .. ClassSize;
@@ -34,7 +36,7 @@ BEGIN {AverageScore}
       DO
         BEGIN
           READ(NextScore);
-          IF (NextScore < 0) OR (NextScore > 100)
+          IF (NextScore < MinScore) OR  (NextScore > MaxScore)
           THEN
             WRITELN(NextScore, ' Probably incorrect value ');
           TotalScore := TotalScore + NextScore;
@@ -51,7 +53,6 @@ BEGIN {AverageScore}
       ClassTotal := ClassTotal + TotalScore;
       Student := Student + 1;
     END;
-  WRITELN;
   WRITELN ('Class average:');
   ClassTotal := ClassTotal DIV (ClassSize * NumberOfScores);
   WRITELN(ClassTotal DIV 10, '.', ClassTotal MOD 10:1)

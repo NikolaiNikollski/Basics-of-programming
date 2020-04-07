@@ -36,7 +36,6 @@ BEGIN {AverageScore}
       ClassTotal := ClassTotal + TotalScore;
       Student := Student + 1;
     END;
-  WRITELN;
   WRITELN ('Class average:');
   ClassTotal := ClassTotal DIV (ClassSize * NumberOfScores);
   WRITELN(ClassTotal DIV 10, '.', ClassTotal MOD 10:1)
