@@ -7,8 +7,8 @@ CONST
 TYPE
   Score = Minscore .. MaxScore;
 VAR
-  WhichScore: 1 .. NumberOfScores;
-  Student: 1 .. ClassSize;
+  WhichScore: 0 .. NumberOfScores;
+  Student: 0 .. ClassSize;
   NextScore: Score;
   Ave, TotalScore, ClassTotal: INTEGER;
 PROCEDURE ReadAndWriteSurname;
@@ -25,14 +25,14 @@ END;
 BEGIN {AverageScore}
   ClassTotal := 0;
   WRITELN('Student averages:');
-  Student := 1;
-  WHILE Student <= ClassSize
+  Student := 0;
+  WHILE Student < ClassSize
   DO 
     BEGIN
       ReadAndWriteSurname;
       TotalScore := 0;
-      WhichScore := 1;
-      WHILE WhichScore <= NumberOfScores
+      WhichScore := 0;
+      WHILE WhichScore < NumberOfScores
       DO
         BEGIN
           READ(NextScore);
