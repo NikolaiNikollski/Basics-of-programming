@@ -15,6 +15,7 @@ PROCEDURE ReadAndWriteSurname;
 VAR
   Ch: CHAR;
 BEGIN
+  Ch := '#';
   WHILE (NOT EOlN) AND (Ch <> ' ')
   DO
     BEGIN
