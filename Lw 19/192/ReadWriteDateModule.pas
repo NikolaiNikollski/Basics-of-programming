@@ -1,4 +1,4 @@
-UNIT Module_192;
+UNIT ReadWriteDateModule;   
 
 INTERFACE
   TYPE
@@ -95,8 +95,6 @@ IMPLEMENTATION
   END;{WriteDate}
 
   PROCEDURE WriteMonth(VAR FOut: TEXT; VAR Mo: Month);
-  VAR
-    Ch1, Ch2, Ch3: CHAR;
   BEGIN {WriteMonth}
     IF Mo = Jan THEN WRITE('JAN') ELSE
     IF Mo = Feb THEN WRITE('FEB') ELSE

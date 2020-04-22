@@ -1,5 +1,5 @@
 PROGRAM SortDate(INPUT, OUTPUT);
-USES Module_192;
+USES ReadWriteDateModule;
 TYPE
   FileOfDate = FILE OF Date;
 VAR
