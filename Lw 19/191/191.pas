@@ -4,12 +4,12 @@ CONST
   MinValue = 2;
   MaxValue = 100;
 TYPE
-  NumberSetType = SET OF MinValue .. MaxValue;
-  NumberRangeType = MinValue .. MaxValue;
+  NumberSetType = SET OF MinValue .. MaxValue;  [2 .. 100]
+  NumberRangeType = MinValue .. MaxValue;       2 .. 100
 VAR
-  OriginalSet: NumberSetType;
-  NumberSet: NumberSetType;
-  Number: NumberRangeType;
+  OriginalSet: NumberSetType; [2 .. 100]
+  NumberSet: NumberSetType;   [2 .. 100]
+  Number: NumberRangeType;    2 .. 100
   CoeffOfMulti: INTEGER;
 BEGIN {Prime}
   WRITE('Prime numbers in the range up to ', MaxValue, ' will be:');

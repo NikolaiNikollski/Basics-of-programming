@@ -93,11 +93,13 @@ BEGIN {Stat}
           END
     END;
   WRITELN;       
-  WRITELN('Smallest number: ', Min);
+  WRITELN('Smallest number: ', Min);                             100/3
   WRITELN('Highest number: ', Max);
   IF OverFlow
   THEN
     WRITELN('Average: OverFlow')
   ELSE
     WRITELN('Average: ', (Sum DIV Counter), ',', ((ABS(Sum MOD Counter)) * 100 DIV Counter));
-END. {Stat}
+END. {Stat}                                                 1
+                                                                    
+    
