@@ -1,0 +1,23 @@
+PROGRAM CountWords(INPUT, OUTPUT);
+USES WordModule;
+VAR
+  Ch: CHAR;
+  Lexeme: String;
+
+BEGIN
+  ASSIGN(INPUT,'input.txt'); RESET(INPUT);
+  ASSIGN(OUTPUT,'output.txt'); REWRITE(OUTPUT);
+  WHILE NOT EOF
+  DO
+    BEGIN
+      ReadWord(INPUT, Lexema);
+      WRITELN(ToLower(Lexema));
+    END;
+
+
+
+
+END.
+
+
+
