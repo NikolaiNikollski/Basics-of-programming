@@ -1,22 +1,24 @@
 PROGRAM CountWords(INPUT, OUTPUT);
-USES WordModule;
+USES WordModule, FileModule;
 VAR
   Ch: CHAR;
   Lexeme: String;
+  Root: Tree;
 
 BEGIN
   ASSIGN(INPUT,'input.txt'); RESET(INPUT);
   ASSIGN(OUTPUT,'output.txt'); REWRITE(OUTPUT);
-  WHILE NOT EOF
+  Root := NIL;
+  WHILE NOT EOF(INPUT)
   DO
     BEGIN
       ReadWord(INPUT, Lexeme);
       IF Lexeme <> ErrorString
       THEN
-        WRITELN(ToLower(Lexeme));
+        Insert(Root, ToLower(Lexeme));
     END;
-
-
+  PrintStat(Root);
+  WRITELN
 END.
 
 

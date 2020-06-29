@@ -4,16 +4,16 @@ INTERFACE
 TYPE
   Tree = ^NodeType;
   NodeType = RECORD
-               Key: STRING;
+               Key: CHAR;
                Counter: INTEGER;
                LLink, RLink: Tree;
              END;
-PROCEDURE Insert(VAR Ptr: Tree; Data: STRING);
+PROCEDURE Insert(VAR Ptr: Tree; Data: CHAR);
 PROCEDURE PrintStat(Ptr: Tree);
 
 IMPLEMENTATION
 
-PROCEDURE Insert(VAR Ptr: Tree; Data: STRING);
+PROCEDURE Insert(VAR Ptr: Tree; Data: CHAR);
 BEGIN {Insert}
   IF Ptr = NIL
   THEN
@@ -37,15 +37,15 @@ BEGIN {Insert}
 END;  {Insert}
 
 PROCEDURE PrintStat(Ptr: Tree);
-BEGIN {PrintStat}
+BEGIN {PrintTree}
   IF Ptr <> NIL
   THEN  {Печатает поддерево слева, вершину, поддерево справа}
     BEGIN
       PrintStat(Ptr^.LLink);
-      WRITELN(Ptr^.Key, ' ', Ptr^.Counter);
+      WRITELN(CHR(39), Ptr^.Key, CHR(39), ' occurs ', NumberToString(Ptr^.Counter), ' times');
       PrintStat(Ptr^.RLink);
     END
-END;  {PrintStat}
+END;  {PrintTree}
 
 BEGIN {FileModule}
 END. {FileModule}

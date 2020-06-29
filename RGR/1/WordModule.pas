@@ -7,7 +7,7 @@ INTERFACE
     MaxLengthWord = 50;
     ErrorMarker = '&';
     ErrorString = 'ErrorString';
-    CaseConst = 32;
+    LowcaseConst = 32;
 
   PROCEDURE ReadFirstCharacter(VAR InFile: TEXT; VAR Ch: CHAR);
   PROCEDURE ReadWord(VAR InFile: TEXT; VAR Lexeme: STRING);
@@ -74,7 +74,7 @@ IMPLEMENTATION
       BEGIN
         IF InStr[I] IN Uppercase
         THEN
-          ToLower := ToLower + CHR(ORD(InStr[I]) + CaseConst)
+          ToLower := ToLower + CHR(ORD(InStr[I]) + LowcaseConst)
         ELSE
           ToLower := ToLower + InStr[I]
       END
