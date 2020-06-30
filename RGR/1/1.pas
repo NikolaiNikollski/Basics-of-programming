@@ -18,6 +18,7 @@ BEGIN
         Insert(Root, ToLower(Lexeme));
     END;
   PrintStat(Root);
+  ClearTree(Root);
   WRITELN
 END.
 

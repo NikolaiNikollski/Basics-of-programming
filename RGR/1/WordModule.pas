@@ -16,7 +16,8 @@ INTERFACE
 IMPLEMENTATION
 
   PROCEDURE ReadFirstCharacter(VAR InFile: TEXT; VAR Ch: CHAR);
-  BEGIN {ReadFirstCharacter}
+  VAR TempCh: CHAR;
+  BEGIN {ReadFirstCharacter}    
     Ch := ErrorMarker;
     WHILE NOT EOF(InFile)
     DO
@@ -24,10 +25,13 @@ IMPLEMENTATION
         WHILE NOT EOLN(InFile)
         DO
           BEGIN
-            READ(InFile, Ch);
-            IF Ch IN RusAlphabet + EngAlphabet
+            READ(InFile, TempCh);
+            IF TempCh IN RusAlphabet + EngAlphabet
             THEN
-              EXIT
+              BEGIN
+                Ch := TempCh;
+                EXIT                
+              END
           END;
          READLN(InFile)
       END
@@ -39,10 +43,8 @@ IMPLEMENTATION
   BEGIN  {ReadWord}
     Lexeme := ErrorString;
     ReadFirstCharacter(InFile, Ch);
-    IF Ch = ErrorMarker
+    IF Ch <> ErrorMarker
     THEN
-      EXIT
-    ELSE
       BEGIN
         Lexeme := Ch;
         WHILE NOT EOLN(InFile)

@@ -10,6 +10,7 @@ TYPE
              END;
 PROCEDURE Insert(VAR Ptr: Tree; Data: STRING);
 PROCEDURE PrintStat(Ptr: Tree);
+PROCEDURE ClearTree(Ptr: Tree);
 
 IMPLEMENTATION
 
@@ -46,6 +47,17 @@ BEGIN {PrintStat}
       PrintStat(Ptr^.RLink);
     END
 END;  {PrintStat}
+
+PROCEDURE ClearTree(Ptr: Tree);
+BEGIN {ClearTree}
+  IF Ptr <> NIL
+  THEN  {Печатает поддерево слева, вершину, поддерево справа}
+    BEGIN
+      ClearTree(Ptr^.LLink);
+      DISPOSE(Ptr);
+      ClearTree(Ptr^.RLink);
+    END
+END;  {ClearTree}
 
 BEGIN {FileModule}
 END. {FileModule}
