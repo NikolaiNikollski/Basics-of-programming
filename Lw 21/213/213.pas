@@ -25,7 +25,7 @@ BEGIN {Initialize}
   DO
     BEGIN
       ChiperSymbol := '$';
-      Symbol := 'S';
+      Symbol := '$';
       IF NOT EOLN(ChiperFile) THEN READ(ChiperFile, Symbol); //Читать символ
       IF NOT EOLN(ChiperFile) THEN READ(ChiperFile, ChiperSymbol); //Читать шифр
       Code[ChiperSymbol] := Symbol;

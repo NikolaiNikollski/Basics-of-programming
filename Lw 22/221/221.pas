@@ -15,12 +15,10 @@ VAR
   Prev, Curr: 0 .. Max;  
   Extra: CHAR;
   Found: BOOLEAN;
-  J: INTEGER; {!!}
 BEGIN {InsertionSort}
   First := 0;
   Index := 0;
-  //WHILE NOT EOLN
-  FOR J:=1 TO 4   {!!}   
+  WHILE NOT EOLN   
   DO
     BEGIN
       {Помещать запись в список, если позволяет пространство, 
@@ -65,8 +63,6 @@ BEGIN {InsertionSort}
     DO
       BEGIN
         WRITE(Arr[Index].Key);
-        WRITE(Arr[Index].NEXT);  {!!}
-        WRITELN;                 {!!}
         Index := Arr[Index].Next
       END;
     WRITELN;

@@ -2,19 +2,11 @@ PROGRAM PseudoGraphicPrinter(INPUT, OUTPUT);
 TYPE
   CharacterCode = SET OF 0 .. 25;
 VAR
-  Code_0: CharacterCode;
-  Code_1: CharacterCode;
-  Code_2: CharacterCode;
-  Code_3: CharacterCode;
-  Code_4: CharacterCode;
-  Code_5: CharacterCode;
-  Code_6: CharacterCode;
-  Code_7: CharacterCode;
-  Code_8: CharacterCode;
-  Code_9: CharacterCode;
+  Code_0, Code_1, Code_2, Code_3, Code_4: CharacterCode;
+  Code_5, Code_6, Code_7, Code_8, Code_9: CharacterCode;
   Ch: CHAR;
 
-PROCEDURE Print(VAR Code: CharacterCode);
+PROCEDURE Print(Code: CharacterCode);
 VAR
   I: INTEGER;
 BEGIN
@@ -26,7 +18,7 @@ BEGIN
         WRITE('X')
       ELSE
         WRITE(' ');
-      IF ((I MOD 5) = 0)
+      IF ((I MOD 5) = 0) //конец печатной строки
       THEN
         WRITELN
     END
@@ -58,8 +50,7 @@ BEGIN
         '7': Print(Code_7);
         '8': Print(Code_8);
         '9': Print(Code_9)
-      END;
-      WRITELN
+      END
     END
 END.
 
