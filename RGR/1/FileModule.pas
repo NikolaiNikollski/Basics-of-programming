@@ -54,8 +54,8 @@ BEGIN {ClearTree}
   THEN  {Печатает поддерево слева, вершину, поддерево справа}
     BEGIN
       ClearTree(Ptr^.LLink);
-      DISPOSE(Ptr);
       ClearTree(Ptr^.RLink);
+      DISPOSE(Ptr);
     END
 END;  {ClearTree}
 
