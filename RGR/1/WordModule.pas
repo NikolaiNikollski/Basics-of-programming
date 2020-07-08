@@ -28,9 +28,9 @@ IMPLEMENTATION
             IF TempCh IN Uppercase + Lowercase
             THEN
               BEGIN
-                IF TempCh IN ['ñ', 'ð'] //§ ¬¥­¨âì ñ ­  ¥
+                IF TempCh IN ['ё', 'Ё']   
                 THEN
-                  TempCh := '¥';
+                  TempCh := 'е';
                 Ch := TempCh;
                 EXIT
               END;
