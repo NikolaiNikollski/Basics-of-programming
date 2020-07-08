@@ -1,8 +1,9 @@
+
 UNIT WordModule;
 INTERFACE
   CONST
-    Uppercase = ['A' .. 'Z', 'А' .. 'Я', 'Ё'];
-    Lowercase = ['a' .. 'z', 'а' .. 'Я', 'е'];
+    Uppercase = ['A' .. 'Z', '�' .. '�', '�'];
+    Lowercase = ['a' .. 'z', '�' .. '�', '�'];
     MaxLengthWord = 50;
     ErrorMarker = '&';
     ErrorString = 'ErrorString';
@@ -28,9 +29,9 @@ IMPLEMENTATION
             IF TempCh IN Uppercase + Lowercase
             THEN
               BEGIN
-                IF TempCh IN ['ё', 'Ё']   
+                IF TempCh IN ['�', '�']
                 THEN
-                  TempCh := 'е';
+                  TempCh := '�';
                 Ch := TempCh;
                 EXIT
               END;
