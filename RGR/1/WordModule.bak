@@ -1,8 +1,8 @@
 UNIT WordModule;
 INTERFACE
   CONST
-    Uppercase = ['A' .. 'Z', 'А' .. 'Я', 'Ё'];
-    Lowercase = ['a' .. 'z', 'а' .. 'я', 'ё'];
+    Uppercase = ['A' .. 'B', 'А' .. 'Б', 'Ё'];
+    Lowercase = ['a' .. 'b', 'а' .. 'б', 'ё'];
     MaxLengthWord = 50;
     ErrorMarker = '&';
     ErrorString = 'ErrorString';
@@ -28,12 +28,14 @@ IMPLEMENTATION
             IF TempCh IN Uppercase + Lowercase
             THEN
               BEGIN
+                WRITE('НАШЕЛ В алфавите ', TempCh);
                 IF TempCh IN ['ё', 'Ё'] //заменить ё на е
                 THEN
                   TempCh := 'е';
                 Ch := TempCh;
                 EXIT
-              END;
+              END
+            ELSE WRITE('не найдено , TempCh');
           END;
         READLN(InFile)
       END

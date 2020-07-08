@@ -49,7 +49,7 @@ PROCEDURE Encode(VAR S: Str; StrLen: INTEGER);
 VAR
   Index: 1 .. MaxLen;
 BEGIN {Encode}
-  FOR Index := 1 TO MaxLen
+  FOR Index := 1 TO StrLen
   DO
     IF S[Index] IN [' ' .. 'Z']
     THEN

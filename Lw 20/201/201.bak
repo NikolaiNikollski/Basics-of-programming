@@ -14,7 +14,7 @@ CONST
   Space = ' ';
   FirstPos = 1;
   LastPos = 25;
-  EndLinePos = [5, 10, 15, 20, 25];  //позиции, после которых необходимо поставить маркер конца строки
+  EndLinePos = [5, 10, 15, 20, 25]  //позиции, после которых необходимо поставить маркер конца строки
 TYPE
   CodeSet = SET OF FirstPos .. LastPos;
 VAR
@@ -30,12 +30,12 @@ BEGIN
       WRITE(I); {!!}
       IF (I IN Code)
       THEN
-      //  WRITE(Mark)
+        WRITE(Mark)
       ELSE
-       // WRITE(Space);
+        WRITE(Space);
       IF (I IN EndLinePos)
       THEN
-       // WRITELN
+        WRITELN
     END
 END;
 

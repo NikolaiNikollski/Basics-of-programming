@@ -3,6 +3,7 @@ PROGRAM Encryption(INPUT, OUTPUT);
   и печатает новые символы в OUTPUT}
 CONST
   MaxLen = 20;
+  ErrorSymbol = '&';
 TYPE
   Str = ARRAY [1 .. MaxLen] OF ' ' .. 'Z';
   Chiper = ARRAY [' ' .. 'Z'] OF CHAR;
@@ -23,11 +24,15 @@ BEGIN {Initialize}
   RESET(ChiperFile);
   WHILE NOT EOF(ChiperFile)
   DO
-    BEGIN
-      ChiperSymbol := '&';
-      Symbol := '&'; 
-      IF NOT EOLN(ChiperFile) THEN READ(ChiperFile, Symbol); //Читать символ
-      IF NOT EOLN(ChiperFile) THEN READ(ChiperFile, ChiperSymbol); //Читать шифр
+    BEGIN 
+      IF NOT EOLN(ChiperFile) 
+      THEN 
+        READ(ChiperFile, Symbol); //Читать символ
+      IF NOT EOLN(ChiperFile) 
+      THEN 
+        READ(ChiperFile, ChiperSymbol); //Читать шифр
+      ELSE 
+        ChiperSymbol = ErrorSymbol
       Code[Symbol] := ChiperSymbol;
       ValidCharSet := ValidCharSet + [Symbol];
       READLN(ChiperFile)
