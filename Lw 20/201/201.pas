@@ -1,7 +1,6 @@
-
 PROGRAM PseudoGraphicPrinter(INPUT, OUTPUT);
 CONST
-  Code_0 = [2, 3, 4, 6, 10, 11, 15, 16, 20, 22, 23, 24]; {»нициализаци¤}
+  Code_0 = [2, 3, 4, 6, 10, 11, 15, 16, 20, 22, 23, 24]; {Инициализация}
   Code_1 = [3, 7, 8, 11, 13, 18, 21, 22, 23, 24, 25];
   Code_2 = [2, 3, 4, 9, 12, 13, 14, 17, 22, 23, 24];
   Code_3 = [2, 3, 4, 7, 12, 13, 14, 17, 22, 23, 24];
@@ -15,7 +14,7 @@ CONST
   Space = ' ';
   FirstPos = 1;
   LastPos = 25;
-  EndLinePos = [5, 10, 15, 20, 25];  //позиции, после которых необходимо поставить маркер конца строки
+  LineLen = 5; 
 TYPE
   CodeSet = SET OF FirstPos .. LastPos;
 VAR
@@ -33,7 +32,7 @@ BEGIN
         WRITE(Mark)
       ELSE
         WRITE(Space);
-      IF (I IN EndLinePos)
+      IF (I MOD LineLen = 0)
       THEN
         WRITELN;
     END
@@ -58,11 +57,6 @@ BEGIN
       END;
     END
 END.
-
-
-
-
-
 
 
 
