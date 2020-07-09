@@ -8,11 +8,19 @@ INTERFACE
     ErrorString = 'ErrorString';
     LowcaseConst = 32;
 
+  PROCEDURE CheckSymbol(Var Ch: CHAR);
   PROCEDURE ReadFirstCharacter(VAR InFile: TEXT; VAR Ch: CHAR);
   PROCEDURE ReadWord(VAR InFile: TEXT; VAR Lexeme: STRING);
   FUNCTION ToLower(InStr: STRING): STRING;
 
 IMPLEMENTATION
+
+  PROCEDURE CheckSymbol(Var Ch: CHAR);
+  BEGIN
+    IF (Ch = 'ё') OR (Ch  = 'Ё')
+    THEN
+      Ch := 'е'
+  END;
 
   PROCEDURE ReadFirstCharacter(VAR InFile: TEXT; VAR Ch: CHAR);
   VAR TempCh: CHAR;
@@ -28,14 +36,12 @@ IMPLEMENTATION
             IF TempCh IN lowcase + Uppercase
             THEN
               BEGIN
-                IF (TempCh = 'ё') OR (TempCh  = 'Ё')
-                THEN
-                  TempCh := 'е';
+                CheckSymbol(TempCh);
                 Ch := TempCh;
                 EXIT
               END
           END;
-         READLN(InFile)
+        IF NOT EOF THEN READLN(InFile)
       END
   END; {ReadFirstCharacter}
 
@@ -56,9 +62,7 @@ IMPLEMENTATION
             IF Ch IN Lowcase + Uppercase
             THEN
               BEGIN
-                IF (Ch = 'ё') OR (Ch  = 'Ё')
-                THEN
-                  Ch := 'е';
+                CheckSymbol(Ch);
                 Lexeme := Lexeme + Ch;
                 IF LENGTH(lexeme) > MaxLengthWord
                 THEN
