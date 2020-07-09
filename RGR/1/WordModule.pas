@@ -1,9 +1,8 @@
-
 UNIT WordModule;
 INTERFACE
   CONST
-    Uppercase = ['A' .. 'Z', '�' .. '�', '�'];
-    Lowercase = ['a' .. 'z', '�' .. '�', '�'];
+    Lowcase = ['a' .. 'z', 'а' .. 'я', 'Ё'];
+    Uppercase = ['A' .. 'Z', 'А' .. 'Я', 'ё'];
     MaxLengthWord = 50;
     ErrorMarker = '&';
     ErrorString = 'ErrorString';
@@ -11,7 +10,7 @@ INTERFACE
 
   PROCEDURE ReadFirstCharacter(VAR InFile: TEXT; VAR Ch: CHAR);
   PROCEDURE ReadWord(VAR InFile: TEXT; VAR Lexeme: STRING);
-  FUNCTION ToLower(VAR InStr: STRING): STRING;
+  FUNCTION ToLower(InStr: STRING): STRING;
 
 IMPLEMENTATION
 
@@ -26,17 +25,17 @@ IMPLEMENTATION
         DO
           BEGIN
             READ(InFile, TempCh);
-            IF TempCh IN Uppercase + Lowercase
+            IF TempCh IN lowcase + Uppercase
             THEN
               BEGIN
-                IF TempCh IN ['�', '�']
+                IF (TempCh = 'ё') OR (TempCh  = 'Ё')
                 THEN
-                  TempCh := '�';
+                  TempCh := 'е';
                 Ch := TempCh;
                 EXIT
-              END;
+              END
           END;
-        READLN(InFile)
+         READLN(InFile)
       END
   END; {ReadFirstCharacter}
 
@@ -54,9 +53,12 @@ IMPLEMENTATION
         DO
           BEGIN
             READ(Infile, Ch);
-            IF Ch IN Uppercase + Lowercase
+            IF Ch IN Lowcase + Uppercase
             THEN
               BEGIN
+                IF (Ch = 'ё') OR (Ch  = 'Ё')
+                THEN
+                  Ch := 'е';
                 Lexeme := Lexeme + Ch;
                 IF LENGTH(lexeme) > MaxLengthWord
                 THEN
@@ -68,7 +70,7 @@ IMPLEMENTATION
       END
   END; {ReadWord}
 
-  FUNCTION ToLower(VAR InStr: STRING): STRING;
+  FUNCTION ToLower(InStr: STRING): STRING;
   VAR
     Ch: CHAR;
     I: INTEGER;
